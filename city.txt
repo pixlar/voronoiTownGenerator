@@ -1,0 +1,133 @@
+city size
+
+pop
+	categories
+density
+	average is 5500 per sq.mi
+	tweak
+
+location (pick one)
+	- coastal
+	- island
+	- mountain
+	- sky island
+	- underground
+	- trading route
+	- cliff face
+	- treetops
+
+race sliders
+prosperity
+
+features
+	- capital
+	- port
+	- military
+	- old
+	- hilly/steep cliffs
+	- high crime
+	- high magic
+	- low magic
+	- no magic
+	- river
+	- religious center
+	- scientific center
+	- 
+
+politics
+	- autocratic
+	- democratic
+	- feudal
+	- magocratic
+	- theocracy
+	- tribal
+
+
+gen location
+gen history
+
+city alignment
+district alignment
+crime rate
+
+gp limit
+assets
+
+population
+races
+
+architecture
+layout
+
+districts
+professionals
+
+
+STEP 1:
+Location
+Features
+Final pop (categories)
+Racial %
+Politics
+Alignment
+
+STEP 2:
+Generates
+	- city name
+	- city area
+	- base density
+	- rough timeline by decade
+	- topology rough
+	- economy
+	- political structure
+	- gp limit
+	- assets
+	- Age
+	
+Tweak:
+	- city size
+	- density (within limits)
+	- add events/periods to timeline
+	- pin map features
+	- gp limit
+	- assets
+
+STEP 3:
+Generates:
+	- districts
+	- population & demographics
+	- map
+	- crime rate
+	- history
+	
+	
+	
+	
+	
+	
+	
+Environment
+	Area (sq mi)
+	Biome
+	Topology Features
+	Climate
+	Trade Routes
+	
+Census Data
+	Pop
+	Pop Density
+	Racial Breakdowns
+	Districts (number)
+	
+Economy
+	District List
+		Professionals
+		Demographics
+		Businesses
+	Economic Conditions
+	Resources/Trade
+	GP Limit
+	Total Assets
+	
+Government
+	

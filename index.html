@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>City Builder</title>
+<style type="text/css"></style>
+<link href="css/screen.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+  <h1>City Builder</h1>
+  <p class="info"><strong>Step 1</strong> &gt; Step 2 &gt; Step 3</p>
+  <form id="form1" name="form1" action="step2.php" method="post">
+    
+    <p>
+      <label for="cityName">City Name: </label>
+      <input type="text" name="cityName" id="cityName">
+    </p>
+    <p>
+      <label>
+        <input type="radio" name="realism" value="0" id="realism_0">
+        Realistic</label>
+      <br>
+      <label>
+        <input type="radio" name="realism" value="1" id="realism_1">
+        Fantasy</label>
+      <br>
+      <label>
+        <input type="radio" name="realism" value="2" id="realism_2">
+        Background</label>
+      <br>
+      <label>
+        <input type="radio" name="realism" value="3" id="realism_3">
+        Gaming</label>
+      <br>
+    </p>
+    <h2>Features</h2>
+    <div class="span-12">
+      <h3>Locale (Pick One)</h3>
+      <table width="200">
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="coastal" id="location_0">
+            Coastal</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="island" id="location_1">
+            Island</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="mountain" id="location_2">
+            Mountain</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="skyisland" id="location_3">
+            Sky Island</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="underground" id="location_4">
+            Underground</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="cliff face" id="location_5">
+            Cliff Face</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="plains" id="location_6">
+            Agricultural/Plains</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="trees" id="location_7">
+            Treetop City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="location" value="none" id="location_8">
+            Generic</label></td>
+        </tr>
+      </table>
+    </div>
+    <div class="last span-12">
+      <h3>City Features</h3>
+      <table width="200">
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="capitol" id="features_0">
+            Capitol City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="port" id="features_1">
+            Port City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="military" id="features_2">
+            Military City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="old" id="features_3">
+            Ancient City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="crime" id="features_4">
+            High Crime</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="magic" id="features_5">
+            Magical City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="river" id="features_6">
+            River</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="religion" id="features_7">
+            Religious</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="technology" id="features_8">
+            Technological City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="border" id="features_9">
+            Borderlands</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="trade" id="features_10">
+            Trade City</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="features" value="fort" id="features_11">
+            Fortified City</label></td>
+        </tr>
+      </table>
+    </div>
+    <p>&nbsp;</p>
+    <h2>Demographics</h2>
+    <div class="span-14">
+      <h3>DMG/Medieval Town Sizes</h3>
+      <table>
+        <tr>
+          <th width="103">Size</th>
+          <th width="116">Pop.</th>
+          <th width="241">GP Limit (Most expensive item to be found)</th>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="1" id="size_0">
+            Thorp</label></td>
+          <td>20 -80</td>
+          <td>40 gp (Simple Lock, Crossbow)</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="2" id="size_1">
+            Hamlet</label></td>
+          <td>81 - 400</td>
+          <td>100 gp (Musical instrument, masterwork)</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="3" id="size_2">
+            Village</label></td>
+          <td>401 - 900</td>
+          <td>200 gp (heavy Riding Horse)</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="4" id="size_3">
+            Small Town</label></td>
+          <td>901 - 2000</td>
+          <td>800 gp (Masterwork Half-Plate)</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="5" id="size_4">
+            Large Town</label></td>
+          <td>2001 - 5000</td>
+          <td>3000 gp</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="6" id="size_5">
+            Small City</label></td>
+          <td>5001 - 12000</td>
+          <td>15000 gp</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="7" id="size_6">
+            Large City</label></td>
+          <td>12001 - 25000</td>
+          <td>40000 gp (major Magic Item)</td>
+          </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="size" value="8" id="size_7">
+            Metropolis</label></td>
+          <td>25001 - 100,000</td>
+          <td>100000 gp</td>
+          </tr>
+        </table>
+    </div>
+    <div class="span-10 last">
+      <h3>Larger/Modern Cities</h3>
+      <table width="478">
+        <tr>
+          <td width="268">Souix Falls, Richmond, New Orleans, Atlanta</td>
+          <td width="198"><label>
+            <input type="radio" name="size" value="9" id="size_8">
+            100,000 - 500,000</label></td>
+        </tr>
+        <tr>
+          <td>Las Vegas, Charlotte, San Jose</td>
+          <td><label>
+            <input type="radio" name="size" value="10" id="size_9">
+            500,000 - 1,000,000</label></td>
+        </tr>
+        <tr>
+          <td>Dallas, Berlin, Rome</td>
+          <td><label>
+            <input type="radio" name="size" value="11" id="size_10">
+            1,000,000 - 5,000,000</label></td>
+        </tr>
+        <tr>
+          <td>New York, London, Cairo</td>
+          <td><label>
+            <input type="radio" name="size" value="12" id="size_11">
+            5,000,000 - 10,000,000</label></td>
+        </tr>
+        <tr>
+          <td>Seoul, Sao Paolo, Moscow, Shanghai</td>
+          <td><label>
+            <input type="radio" name="size" value="13" id="size_12">
+            10,000,000+</label></td>
+        </tr>
+      </table>
+    </div>
+    <p>&nbsp;</p>
+    <h2 class="clear">City Culture</h2>
+    <div class="span-12">
+      <h3>Races/SubCultures</h3>
+      <table width="599">
+        <tr>
+          <td width="86"><label>
+            <input type="checkbox" name="race" value="race0" id="race_0">
+            Race 1</label></td>
+          <td width="194"><label for="raceName0">Name:</label>
+          <input type="text" name="raceName0" id="raceName0"></td>
+          <td width="303"><label for="raceSize0">Occurance:</label>
+          <input name="raceSize0" type="range" id="raceSize0" max="10" min="1" step="1"></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="race" value="race1" id="race_1">
+            Race 2</label></td>
+          <td width="194"><label for="raceName1">Name:</label>
+          <input type="text" name="raceName1" id="raceName1"></td>
+          <td width="303"><label for="raceSize1">Occurance:</label>
+          <input name="raceSize1" type="range" id="raceSize1" max="10" min="1" step="1"></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="race" value="race2" id="race_2">
+            Race 3</label></td>
+          <td width="194"><label for="raceName2">Name:</label>
+          <input type="text" name="raceName2" id="raceName2"></td>
+          <td width="303"><label for="raceSize2">Occurance:</label>
+          <input name="raceSize2" type="range" id="raceSize2" max="10" min="1" step="1"></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="race" value="race3" id="race_3">
+            Race 4</label></td>
+          <td width="194"><label for="raceName3">Name:</label>
+          <input type="text" name="raceName3" id="raceName3"></td>
+          <td width="303"><label for="raceSize3">Occurance:</label>
+          <input name="raceSize3" type="range" id="raceSize3" max="10" min="1" step="1"></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="race" value="race4" id="race_4">
+            Race 5</label></td>
+          <td width="194"><label for="raceName4">Name:</label>
+          <input type="text" name="raceName4" id="raceName4"></td>
+          <td width="303"><label for="raceSize4">Occurance:</label>
+          <input name="raceSize4" type="range" id="raceSize4" max="10" min="1" step="1"></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="race" value="race5" id="race_5">
+            Race 6</label></td>
+          <td width="194"><label for="raceName5">Name:</label>
+          <input type="text" name="raceName5" id="raceName5"></td>
+          <td width="303"><label for="raceSize5">Occurance:</label>
+          <input name="raceSize5" type="range" id="raceSize5" max="10" min="1" step="1"></td>
+        </tr>
+      </table>
+      <p>
+        <input type="checkbox" name="checkbox2" id="checkbox2">
+        <label for="checkbox2">Include Generic Minor Races/SubCultures </label>
+      </p>
+    </div>
+    <div class="span-10 last">
+      <h3>Government </h3>
+      <table width="200">
+        <tr>
+          <td><label>
+            <input type="radio" name="politics" value="autocratic" id="politics_0">
+            Autocratic</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="politics" value="democratic" id="politics_1">
+            Democratic</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="politics" value="feudal" id="politics_2">
+            Feudal</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="politics" value="mage" id="politics_3">
+            Magocratic</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="politics" value="church" id="politics_4">
+            Theocracy</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="politics" value="tribal" id="politics_5">
+            Tribal</label></td>
+        </tr>
+      </table>
+      <p>
+        <label>
+          <input type="checkbox" name="poliFeatures" value="odd" id="poliFeatures_0">
+          NonConventional Government</label>
+        <br>
+        <label>
+          <input type="checkbox" name="poliFeatures" value="magic" id="poliFeatures_1">
+          Magical Selection</label>
+        <br>
+        <label>
+          <input type="checkbox" name="poliFeatures" value="shadow" id="poliFeatures_2">
+          Shadow Government</label>
+        <br>
+        <label>
+          <input type="checkbox" name="poliFeatures" value="district" id="poliFeatures_3">
+          Force more power centers</label>
+        <br>
+      </p>
+      <h3>City Alignment</h3>
+      <table width="338" height="212">
+        <tr>
+          <td width="118"><label>
+            <input type="radio" name="alignment" value="LE" id="alignment_0">
+            Lawful Evil</label></td>
+          <td width="86"><label>
+            <input type="radio" name="alignment" value="NE" id="alignment_3">
+            Evil</label></td>
+          <td width="118"><label>
+            <input type="radio" name="alignment" value="CE" id="alignment_6">
+            Chaotic Evil</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="alignment" value="LN" id="alignment_1">
+            Lawful</label></td>
+          <td><label>
+            <input type="radio" name="alignment" value="NN" id="alignment_4">
+            Neutral</label></td>
+          <td><label>
+            <input type="radio" name="alignment" value="CN" id="alignment_7">
+            Chaotic</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="radio" name="alignment" value="LG" id="alignment_2">
+            Lawful Good</label></td>
+          <td><label>
+            <input type="radio" name="alignment" value="NG" id="alignment_5">
+            Good</label></td>
+          <td><label>
+            <input type="radio" name="alignment" value="CG" id="alignment_8">
+            Chaotic Good</label></td>
+        </tr>
+      </table>
+    </div>
+    <h2 class="clear">Finish Part One</h2>
+    <p>
+      <input type="submit" name="submit" id="submit" value="Submit">
+    </p>
+  </form>
+</div>
+</body>
+</html>

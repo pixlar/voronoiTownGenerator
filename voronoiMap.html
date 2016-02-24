@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Town Map Generator</title>
+<meta name="Keywords" lang="en" content="voronoi, fortune, javascript, raymond hill"/>
+<!--[if lte IE 8]><script type="text/javascript" src="excanvas/excanvas.compiled.js"></script><![endif]-->
+<script type="text/javascript" src="js/rhill-voronoi-core.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script id="script" type="text/javascript">
+var VoronoiDemo = {
+    voronoi: new Voronoi(),
+    sites: [],
+    diagram: null,
+    margin: 0.05,
+    canvas: null,
+    bbox: {xl:0,xr:800,yt:0,yb:800},
+
+    init: function() {
+        this.canvas = document.getElementById('voronoiCanvas');
+        this.randomSites(100,true);
+        this.render();
+        },
+
+
+    clearSites: function() {
+        this.sites = [];
+        this.diagram = this.voronoi.compute(this.sites, this.bbox);
+        },
+
+    randomSites: function(n,clear) {
+        if (clear) {this.sites = [];}
+        // create vertices
+        var xmargin = this.canvas.width*this.margin,
+            ymargin = this.canvas.height*this.margin,
+            xo = xmargin,
+            dx = this.canvas.width-xmargin*2,
+            yo = ymargin,
+            dy = this.canvas.height-ymargin*2;
+        for (var i=0; i<n; i++) {
+            this.sites.push({
+                x: xo + Math.random()*dx + Math.random()/dx,
+                y: yo + Math.random()*dy + Math.random()/dy
+                });
+            }
+        this.voronoi.recycle(this.diagram);
+        this.diagram = this.voronoi.compute(this.sites, this.bbox);
+        },
+
+    recompute: function() {
+        this.diagram = this.voronoi.compute(this.sites, this.bbox);
+        },
+
+    render: function() {
+        var ctx = this.canvas.getContext('2d');
+        // background
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.rect(0,0,this.canvas.width,this.canvas.height);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.strokeStyle = '#888';
+        ctx.stroke();
+        // voronoi
+        if (!this.diagram) {return;}
+        // edges
+        ctx.beginPath();
+        ctx.strokeStyle = '#000';
+        var edges = this.diagram.edges,
+            iEdge = edges.length,
+            edge, v;
+        while (iEdge--) {
+            edge = edges[iEdge];
+            v = edge.va;
+            ctx.moveTo(v.x,v.y);
+            v = edge.vb;
+            ctx.lineTo(v.x,v.y);
+            }
+        ctx.stroke();
+        // sites
+        ctx.beginPath();
+        ctx.fillStyle = '#44f';
+        var sites = this.sites,
+            iSite = sites.length;
+        while (iSite--) {
+            v = sites[iSite];
+            ctx.rect(v.x-2/3,v.y-2/3,2,2);
+            }
+        ctx.fill();
+        },
+    };
+</script>
+<link href="css/screen.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="VoronoiDemo.init();">
+<div class="container" id="container">
+<h1>City Map</h1>
+<div class="span-8">
+  <p>
+    <label for="population">Population:</label>
+    <input type="number" name="number" id="population">
+  </p>
+  <button onClick="demographics()">Generate City</button>
+</div>
+<div class="span-14 last">
+  <table>
+    <tbody>
+      <tr>
+        <th scope="row">Districts</th>
+        <td id="districtsResult">&nbsp;</td>
+        </tr>
+      <tr>
+        <th scope="row">Density</th>
+        <td><label for="densityResult">People per sq. mile</label>
+          <input type="number" name="densityResult" id="densityResult" onchange="densityAdjust()"></td>
+        </tr>
+      <tr>
+        <th scope="row">Area</th>
+        <td id="areaResult">&nbsp;</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<script>
+  function demographics() {
+	  var population = document.getElementById("population").value;
+	  if (population == "") {
+		  population = Math.round(Math.random() * 100) * Math.round(Math.random() * 10) + Math.round(Math.random() * 100) * Math.round(Math.random() * 100);
+		  document.getElementById("population").value = population;
+	  }
+	  document.getElementById("districtsResult").innerHTML = countDistricts(population);
+	  document.getElementById("voronoiNumberSites").value = (countDistricts(population) + 20);
+  }
+  
+  function countDistricts(totalPop) {
+	  districtCount = Math.round(totalPop/500);
+	  return districtCount;
+  }
+</script>
+
+<div class="span-24" id="voronoiGenerator">
+<input type="button" value="Generate" onclick="VoronoiDemo.randomSites(parseInt(document.getElementById('voronoiNumberSites').value,10),true);VoronoiDemo.render();"/> or <input type="button" value="Add" onclick="VoronoiDemo.randomSites(parseInt(document.getElementById('voronoiNumberSites').value,10),false);VoronoiDemo.render();"/><input id="voronoiNumberSites" type="text" value="100" size="5" maxlength="5"/> sites randomly (Warning: performance might suffer the more sites you add.)
+<br/><input id="voronoiClearSites" type="button" value="Clear all sites" onclick="VoronoiDemo.clearSites();VoronoiDemo.render();"/>
+</div>
+<div class="span-22 push-1" id="canvasParent">
+<noscript>You need to enable Javascript in your browser for this page to display properly.</noscript>
+<canvas id="voronoiCanvas" width="800" height="800"></canvas>
+
+</div>
+
+</div>
+</body>
+</html>
